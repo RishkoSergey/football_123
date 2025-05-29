@@ -31,10 +31,10 @@ body {
   height: 0;
   left: 50%;
   top: 50%;
-  transition: width .3s ease,
+  /* transition: width .3s ease,
               height .3s ease,
               left .3s ease,
-              top .3s ease;
+              top .3s ease; */
   z-index: 1;
 }
 
@@ -128,7 +128,7 @@ body {
   width: 100vw;
   background: #05182E80;
   padding: 3.7vh 4.5vw 10vh 4.5vw;
-  transition: bottom .3s ease;
+  /* transition: bottom .3s ease; */
   box-sizing: border-box;
   z-index: 10;
 }
