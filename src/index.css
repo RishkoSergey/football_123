@@ -233,4 +233,83 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.keyboard {
+  position: absolute;
+  height: 53vh;
+  bottom: -53vh;
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  width: 100vw;
+  background: #05182E80;
+  padding: 5vh 11.5vw 3vh 11.5vw;
+  transition: opacity .25s ease-in, visibility 0ms ease-in .25s;
+  box-sizing: border-box;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.keyboardLeft {
+  width: 67vw;
+}
+
+.keyboardRight {
+  width: 10vw;
+}
+
+.keyboard.open {
+  bottom: 0;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0ms;
+}
+
+.letter {
+  width: 4.5vw;
+  margin-right: 1vw;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vh;
+  font-family: 800;
+  line-height: 100%;
+  color: white;
+  background: #05182E;
+  border-radius: 15px;
+  border: none;
+}
+
+.letter:last-child {
+  margin-right: 0;
+}
+
+.letterRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.keyboardRight .letter {
+  width: 100%;
+  margin-bottom: 2vh;
+}
+
+.letter.space {
+  width: 14vw;
+}
+
+.letter.text {
+  font-size: 4vh;
+}
+
+body > image {
+  opacity: 0;
 }
