@@ -78,9 +78,12 @@ const App = () => {
     setSelectedIndex(null);
   }
 
+  const [resetValue, setResetValue] = useState(0);
+
   const reset = () => {
     setFootballers(footballers.map(item => ({ ...item, image: null })));
     setName('')
+    setResetValue(resetValue + 1);
   }
 
   const [showKeyboard, setShowKeyboard] = useState(false);
@@ -119,6 +122,7 @@ const App = () => {
       <Keyboard
         open={showKeyboard}
         initValue={name}
+        resetValue={resetValue}
         onChange={(value) => setName(value)}
         onClose={() => setShowKeyboard(false)}
       />

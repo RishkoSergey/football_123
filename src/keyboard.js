@@ -18,10 +18,14 @@ const ru = [
 const bottomLeft = ['-', '_', '@'];
 const bottomRight = ['!', '/', '#'];
 
-const Keyboard = ({ open, initValue, onChange, onClose }) => {
+const Keyboard = ({ open, initValue, resetValue, onChange, onClose }) => {
   const wrapperRef = useRef(null);
   const [lang, setLang] = useState('en');
   const [value, setValue] = useState(initValue);
+
+  useEffect(() => {
+    setValue('')
+  }, [resetValue])
 
   useEffect(() => {
     function handleClickOutside(event) {
