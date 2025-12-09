@@ -1,24 +1,28 @@
 {
   "files": {
-    "main.css": "./static/css/main.db68c81f.css",
-    "main.js": "./static/js/main.b8a376ad.js",
-    "static/media/background.png": "./static/media/background.5460db993ab1bef537ef.png",
-    "static/media/6.png": "./static/media/6.6de23982641a99222982.png",
-    "static/media/3.png": "./static/media/3.6e0e144739e6f1600acf.png",
-    "static/media/4.png": "./static/media/4.a9b8573177da47222b4b.png",
-    "static/media/5.png": "./static/media/5.70f8a417ed03da0f79fc.png",
-    "static/media/2.png": "./static/media/2.51c5116d509408cf6b12.png",
-    "static/media/1.png": "./static/media/1.0fb0ce96bf3750f27ae1.png",
-    "static/media/7.png": "./static/media/7.89f09fb9fb42daa5ede6.png",
-    "static/media/8.png": "./static/media/8.88fb0fae4a98db65fa5c.png",
-    "static/media/emptyCard.png": "./static/media/emptyCard.fefd9426c003445d422b.png",
-    "static/media/emptyCardActive.png": "./static/media/emptyCardActive.d82d18ee4622e7343ff9.png",
+    "main.css": "./static/css/main.ccb305af.css",
+    "main.js": "./static/js/main.fa4bb515.js",
+    "static/media/background.png": "./static/media/background.fe6ced5998616daf0209.png",
+    "static/media/10.png": "./static/media/10.2d32ed8e89414d108dd7.png",
+    "static/media/6.png": "./static/media/6.4f38fc31a20195636406.png",
+    "static/media/9.png": "./static/media/9.6c1f291d603ce0adc35a.png",
+    "static/media/2.png": "./static/media/2.219eb3c04253e102cfb0.png",
+    "static/media/5.png": "./static/media/5.73660edc8037227ff9d5.png",
+    "static/media/3.png": "./static/media/3.7eaaab58974621f5a084.png",
+    "static/media/4.png": "./static/media/4.dad1effb83150e1e9d10.png",
+    "static/media/7.png": "./static/media/7.51a6638a67589300c522.png",
+    "static/media/8.png": "./static/media/8.8bfdb51e7b086b39c4c3.png",
+    "static/media/1.png": "./static/media/1.d7803c72334281ddbb26.png",
+    "static/media/capitainEmpty.png": "./static/media/capitainEmpty.e293b86171363ce0265b.png",
+    "static/media/sniperEmpty.png": "./static/media/sniperEmpty.3ccd8d4f06b7c8981037.png",
+    "static/media/trainerEmpty.png": "./static/media/trainerEmpty.75ce1d819101f30ebd10.png",
+    "static/media/riflerEmpty.png": "./static/media/riflerEmpty.b25ace25907080d16858.png",
     "index.html": "./index.html",
-    "main.db68c81f.css.map": "./static/css/main.db68c81f.css.map",
-    "main.b8a376ad.js.map": "./static/js/main.b8a376ad.js.map"
+    "main.ccb305af.css.map": "./static/css/main.ccb305af.css.map",
+    "main.fa4bb515.js.map": "./static/js/main.fa4bb515.js.map"
   },
   "entrypoints": [
-    "static/css/main.db68c81f.css",
-    "static/js/main.b8a376ad.js"
+    "static/css/main.ccb305af.css",
+    "static/js/main.fa4bb515.js"
   ]
 }
