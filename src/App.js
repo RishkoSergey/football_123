@@ -1,75 +1,57 @@
-import { useState, useRef, useEffect } from 'react';
-import emptyCard from './assets/emptyCard.png';
-import emptyCardActive from './assets/emptyCardActive.png';
-import cn from 'classnames';
+import { useState } from 'react';
 import SelectPanel from './selectPanel';
 import logo from './assets/logo.png';
 import resetImg from './assets/reset.png';
-import Keyboard from "./keyboard";
+import CapitainEmpty from './assets/capitainEmpty.png';
+import RiflerEmpty from './assets/riflerEmpty.png';
+import TrainerEmpty from './assets/trainerEmpty.png';
+import SniperEmpty from './assets/sniperEmpty.png';
+// import Keyboard from "./keyboard";
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [name, setName] = useState('');
-  const [footballers, setFootballers] = useState([
+  // const [name, setName] = useState('');
+  const [players, setPlayers] = useState([
     {
       id: 1,
-      title: 'ВРТ',
+      title: 'Капитан',
       image: null,
+      imageEmpty: CapitainEmpty
     },
     {
       id: 2,
-      title: 'ЦЗ',
+      title: 'Снайпер',
       image: null,
+      imageEmpty: SniperEmpty
     },
     {
       id: 3,
-      title: 'ЦЗ',
+      title: 'Рифлер-1',
       image: null,
+      imageEmpty: RiflerEmpty
     },
     {
       id: 4,
-      title: 'ЛЗ',
+      title: 'Рифлер-2',
       image: null,
+      imageEmpty: RiflerEmpty
     },
     {
       id: 5,
-      title: 'ПЗ',
+      title: 'Рифлер-3',
       image: null,
+      imageEmpty: RiflerEmpty
     },
     {
       id: 6,
-      title: 'ЦП',
+      title: 'Тренер',
       image: null,
-    },
-    {
-      id: 7,
-      title: 'ЦАП',
-      image: null,
-    },
-    {
-      id: 8,
-      title: 'ЦАП',
-      image: null,
-    },
-    {
-      id: 9,
-      title: 'ЛФА',
-      image: null,
-    },
-    {
-      id: 10,
-      title: 'ПФА',
-      image: null,
-    },
-    {
-      id: 11,
-      title: 'ФРВ',
-      image: null,
+      imageEmpty: TrainerEmpty
     },
   ]);
 
   const onChoosePlayer = (image) => {
-    setFootballers(footballers.map(item => {
+    setPlayers(players.map(item => {
       if (selectedIndex === item.id) {
         return { ... item, image };
       }
@@ -81,34 +63,37 @@ const App = () => {
   const [resetValue, setResetValue] = useState(0);
 
   const reset = () => {
-    setFootballers(footballers.map(item => ({ ...item, image: null })));
-    setName('')
+    setPlayers(players.map(item => ({ ...item, image: null })));
+    // setName('')
     setResetValue(resetValue + 1);
   }
 
-  const [showKeyboard, setShowKeyboard] = useState(false);
+  // const [showKeyboard, setShowKeyboard] = useState(false);
 
   return (
     <div className="main">
-      {footballers.map(item => (
+      {players.map(item => (
         <div
           key={item.id}
-          className={cn('player', {active: item.id === selectedIndex})}
+          className='player'
           onClick={() => setSelectedIndex(selectedIndex === item.id ? null : item.id)}
         >
-          <img src={item.image ? item.image : item.id === selectedIndex ? emptyCardActive : emptyCard} className='playerImg'/>
+          <img src={item.image ? item.image : item.imageEmpty} className='playerImg'/>
           <div className='playerPosition'>{item.title}</div>
         </div>
       ))}
-      <div className='topLeft'>
+      <div className='topField'>
         <img src={logo} className='logo' />
         <div className='fieldTitle'>КОМАНДА МЕЧТЫ</div>
-        <input
+        <button className='blueButton'>
+          РАСПЕЧАТАТЬ
+        </button>
+        {/* <input
           value={name}
           className='textField'
           placeholder='ВВЕДИТЕ НАЗВАНИЕ'
           onFocus={() => setShowKeyboard(true)}
-        />
+        /> */}
       </div>
       <button className='reset' onClick={reset}>
         <img src={resetImg} className='resetImage' />
@@ -119,13 +104,13 @@ const App = () => {
         onChoose={onChoosePlayer}
         onClose={() => setSelectedIndex(null)}
       />
-      <Keyboard
+      {/* <Keyboard
         open={showKeyboard}
         initValue={name}
         resetValue={resetValue}
         onChange={(value) => setName(value)}
         onClose={() => setShowKeyboard(false)}
-      />
+      /> */}
     </div>
   );
 }
