@@ -111,6 +111,9 @@ body {
   padding: 1.2vh 1.6vw;
   color: white;
   font-size: 2.8vh;
+  position: absolute;
+  right: 2vw;
+  top: 2.7vh;
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-weight: 900;

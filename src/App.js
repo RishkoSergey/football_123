@@ -6,6 +6,7 @@ import CapitainEmpty from './assets/capitainEmpty.png';
 import RiflerEmpty from './assets/riflerEmpty.png';
 import TrainerEmpty from './assets/trainerEmpty.png';
 import SniperEmpty from './assets/sniperEmpty.png';
+import html2canvas from 'html2canvas'
 // import Keyboard from "./keyboard";
 
 const App = () => {
@@ -68,50 +69,88 @@ const App = () => {
     setResetValue(resetValue + 1);
   }
 
+  const captureAndSave = () => {
+    const screenshotTarget = document.getElementById('screenshot');
+    html2canvas(screenshotTarget).then((canvas) => {
+      canvas.toBlob(blob => {
+        uploadToYandexDisk(blob, `/screenshot.png`);
+    }, 'image/png');
+    });
+  }
+
+  const uploadToYandexDisk = async (fileBlob, filename) => {
+    const accessToken = 'y0__xCz4Pu3BRjZmjwgsbrDzBWqeV3v-ziSaGnsGID7kb--xaA8dQ';
+
+    const uploadUrl = `https://cloud-api.yandex.net/v1/disk/resources/upload?path=${filename}&overwrite=true`;
+
+    try {
+      fetch(uploadUrl, {
+        headers: {
+            'Authorization': `OAuth ${accessToken}`,
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        fetch(data.href, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': fileBlob.type, // или другой тип
+          },
+          body: fileBlob
+        })
+      });
+    } catch (err) {
+      console.log(err);
+    }
+}
+
   // const [showKeyboard, setShowKeyboard] = useState(false);
 
   return (
-    <div className="main">
-      {players.map(item => (
-        <div
-          key={item.id}
-          className='player'
-          onClick={() => setSelectedIndex(selectedIndex === item.id ? null : item.id)}
-        >
-          <img src={item.image ? item.image : item.imageEmpty} className='playerImg'/>
-          <div className='playerPosition'>{item.title}</div>
+    <>
+      <div className="main" id="screenshot">
+        {players.map(item => (
+          <div
+            key={item.id}
+            className='player'
+            onClick={() => setSelectedIndex(selectedIndex === item.id ? null : item.id)}
+          >
+            <img src={item.image ? item.image : item.imageEmpty} className='playerImg'/>
+            <div className='playerPosition'>{item.title}</div>
+          </div>
+        ))}
+        <SelectPanel
+          positionId={selectedIndex}
+          onChoose={onChoosePlayer}
+          onClose={() => setSelectedIndex(null)}
+        />
+        <div className='topField'>
+          <img src={logo} className='logo' />
+          <div className='fieldTitle'>КОМАНДА МЕЧТЫ</div>
+          <div style={{width: '8vw'}} />
         </div>
-      ))}
-      <div className='topField'>
-        <img src={logo} className='logo' />
-        <div className='fieldTitle'>КОМАНДА МЕЧТЫ</div>
-        <button className='blueButton'>
-          РАСПЕЧАТАТЬ
-        </button>
+        {/* <Keyboard
+          open={showKeyboard}
+          initValue={name}
+          resetValue={resetValue}
+          onChange={(value) => setName(value)}
+          onClose={() => setShowKeyboard(false)}
+        /> */}
+      </div>
+      <button className='blueButton' onClick={captureAndSave}>
+        РАСПЕЧАТАТЬ
+      </button>
         {/* <input
           value={name}
           className='textField'
           placeholder='ВВЕДИТЕ НАЗВАНИЕ'
           onFocus={() => setShowKeyboard(true)}
         /> */}
-      </div>
       <button className='reset' onClick={reset}>
         <img src={resetImg} className='resetImage' />
         НАЧАТЬ ЗАНОВО
       </button>
-      <SelectPanel
-        positionId={selectedIndex}
-        onChoose={onChoosePlayer}
-        onClose={() => setSelectedIndex(null)}
-      />
-      {/* <Keyboard
-        open={showKeyboard}
-        initValue={name}
-        resetValue={resetValue}
-        onChange={(value) => setName(value)}
-        onClose={() => setShowKeyboard(false)}
-      /> */}
-    </div>
+    </>
   );
 }
 
