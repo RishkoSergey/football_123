@@ -72,7 +72,7 @@ body {
   visibility: hidden;
   left: 0;
   width: 100vw;
-  background: #05182E80;
+  background: rgba(5, 24, 46, 0.75);
   padding: 3.7vh 4.5vw 10vh 4.5vw;
   transition: opacity .25s ease-in, visibility 0ms ease-in .25s;
   box-sizing: border-box;

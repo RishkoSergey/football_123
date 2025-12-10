@@ -73,7 +73,7 @@ const App = () => {
     const screenshotTarget = document.getElementById('screenshot');
     html2canvas(screenshotTarget).then((canvas) => {
       canvas.toBlob(blob => {
-        uploadToYandexDisk(blob, `/screenshot.png`);
+        uploadToYandexDisk(blob, `/screenshot-${Math.floor(Math.random() * 1000)}.png`);
     }, 'image/png');
     });
   }
