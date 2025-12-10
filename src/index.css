@@ -276,3 +276,42 @@ body {
 body > img {
   opacity: 0;
 }
+
+.qrCodeModal {
+  position: absolute;
+  height: 56vh;
+  width: 32vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4vh;
+  z-index: 10;
+  border-radius: 1.4vh;
+}
+
+.qrCodeTitle, .qrCodeSubtitle {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  margin-bottom: 2.7vh;
+  font-size: 4vh;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qrCodeSubtitle {
+  margin-bottom: 5.4vh;
+  font-size: 2.4vh;
+}
+
+.qrCodeModal svg {
+  width: 19vh;
+  height: 19vh;
+  margin-bottom: 5.4vh;
+}

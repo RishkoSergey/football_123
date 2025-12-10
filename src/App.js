@@ -7,6 +7,7 @@ import RiflerEmpty from './assets/riflerEmpty.png';
 import TrainerEmpty from './assets/trainerEmpty.png';
 import SniperEmpty from './assets/sniperEmpty.png';
 import html2canvas from 'html2canvas'
+import QrCode from './qrCode';
 // import Keyboard from "./keyboard";
 
 const App = () => {
@@ -73,15 +74,17 @@ const App = () => {
     const screenshotTarget = document.getElementById('screenshot');
     html2canvas(screenshotTarget).then((canvas) => {
       canvas.toBlob(blob => {
-        uploadToYandexDisk(blob, `/screenshot-${Math.floor(Math.random() * 1000)}.png`);
+        uploadToYandexDisk(blob, '/Screenshots', `/screenshot-${Math.floor(Math.random() * 1000)}.png`);
     }, 'image/png');
     });
   }
 
-  const uploadToYandexDisk = async (fileBlob, filename) => {
+  const [link, setLink] = useState(null);
+
+  const uploadToYandexDisk = async (fileBlob, path, filename) => {
     const accessToken = 'y0__xCz4Pu3BRjZmjwgsbrDzBWqeV3v-ziSaGnsGID7kb--xaA8dQ';
 
-    const uploadUrl = `https://cloud-api.yandex.net/v1/disk/resources/upload?path=${filename}&overwrite=true`;
+    const uploadUrl = `https://cloud-api.yandex.net/v1/disk/resources/upload?path=${path}${filename}&overwrite=true`;
 
     try {
       fetch(uploadUrl, {
@@ -89,16 +92,16 @@ const App = () => {
             'Authorization': `OAuth ${accessToken}`,
         },
       })
-      .then(response => response.json())
-      .then(data => {
-        fetch(data.href, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': fileBlob.type, // или другой тип
-          },
-          body: fileBlob
-        })
-      });
+        .then(response => response.json())
+        .then(data => {
+          fetch(data.href, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': fileBlob.type, // или другой тип
+            },
+            body: fileBlob
+          }).then(() => setLink(`https://disk.yandex.ru/d/PEl1jn4scg42ZA${filename}`));
+        });
     } catch (err) {
       console.log(err);
     }
@@ -138,7 +141,7 @@ const App = () => {
         /> */}
       </div>
       <button className='blueButton' onClick={captureAndSave}>
-        РАСПЕЧАТАТЬ
+        СОХРАНИТЬ
       </button>
         {/* <input
           value={name}
@@ -150,6 +153,7 @@ const App = () => {
         <img src={resetImg} className='resetImage' />
         НАЧАТЬ ЗАНОВО
       </button>
+      {link && <QrCode link={link} onClose={() => setLink(null)} />}
     </>
   );
 }
