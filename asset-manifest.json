@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.f5b5a8e7.css",
+    "main.css": "./static/css/main.23d47e34.css",
     "main.js": "./static/js/main.f95c8b4b.js",
     "static/media/background.png": "./static/media/background.fe6ced5998616daf0209.png",
     "static/media/10.png": "./static/media/10.2d32ed8e89414d108dd7.png",
@@ -18,11 +18,11 @@
     "static/media/trainerEmpty.png": "./static/media/trainerEmpty.75ce1d819101f30ebd10.png",
     "static/media/riflerEmpty.png": "./static/media/riflerEmpty.b25ace25907080d16858.png",
     "index.html": "./index.html",
-    "main.f5b5a8e7.css.map": "./static/css/main.f5b5a8e7.css.map",
+    "main.23d47e34.css.map": "./static/css/main.23d47e34.css.map",
     "main.f95c8b4b.js.map": "./static/js/main.f95c8b4b.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5b5a8e7.css",
+    "static/css/main.23d47e34.css",
     "static/js/main.f95c8b4b.js"
   ]
 }
