@@ -70,7 +70,11 @@ const App = () => {
     setResetValue(resetValue + 1);
   }
 
+  const [link, setLink] = useState(null);
+  const [showQr, setShowQr] = useState(null);
+
   const captureAndSave = () => {
+    setShowQr(true);
     const screenshotTarget = document.getElementById('screenshot');
     html2canvas(screenshotTarget).then((canvas) => {
       canvas.toBlob(blob => {
@@ -78,8 +82,6 @@ const App = () => {
     }, 'image/png');
     });
   }
-
-  const [link, setLink] = useState(null);
 
   const uploadToYandexDisk = async (fileBlob, path, filename) => {
     const accessToken = 'y0__xCz4Pu3BRjZmjwgsbrDzBWqeV3v-ziSaGnsGID7kb--xaA8dQ';
@@ -153,7 +155,10 @@ const App = () => {
         <img src={resetImg} className='resetImage' />
         НАЧАТЬ ЗАНОВО
       </button>
-      {link && <QrCode link={link} onClose={() => setLink(null)} />}
+      {showQr && <QrCode link={link} onClose={() => {
+        setLink(null);
+        setShowQr(false);
+      }} />}
     </>
   );
 }

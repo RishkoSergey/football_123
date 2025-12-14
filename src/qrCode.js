@@ -1,5 +1,6 @@
 import {useEffect, useRef} from 'react';
 import QRCode from "react-qr-code";
+import Loading from './assets/loading.gif';
 
 const QrCode = ({ link, onClose }) => {
   const wrapperRef = useRef(null);
@@ -24,7 +25,9 @@ const QrCode = ({ link, onClose }) => {
     <div ref={wrapperRef} className='qrCodeModal'>
       <div className='qrCodeTitle'>КОМАНДА СОХРАНЕНА</div>
       <div className='qrCodeSubtitle'>Отсканируй qr-код и скачай себе на память команду твоей мечты</div>
-      <QRCode value={link} />
+      {link
+        ? <QRCode value={link} />
+        : <img src={Loading} style={{ width: '100%', height: 'auto', position: 'relative', top: '-5.4vh' }}/>}
     </div>
   )
 };
