@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.0fe467f2.css",
-    "main.js": "./static/js/main.7c9ab39c.js",
+    "main.css": "./static/css/main.4e678f21.css",
+    "main.js": "./static/js/main.a8ae6b96.js",
     "static/media/background.png": "./static/media/background.fe6ced5998616daf0209.png",
     "static/media/10.png": "./static/media/10.2d32ed8e89414d108dd7.png",
     "static/media/6.png": "./static/media/6.4f38fc31a20195636406.png",
@@ -13,16 +13,17 @@
     "static/media/7.png": "./static/media/7.51a6638a67589300c522.png",
     "static/media/8.png": "./static/media/8.8bfdb51e7b086b39c4c3.png",
     "static/media/1.png": "./static/media/1.d7803c72334281ddbb26.png",
-    "static/media/capitainEmpty.png": "./static/media/capitainEmpty.e293b86171363ce0265b.png",
-    "static/media/sniperEmpty.png": "./static/media/sniperEmpty.3ccd8d4f06b7c8981037.png",
-    "static/media/trainerEmpty.png": "./static/media/trainerEmpty.75ce1d819101f30ebd10.png",
-    "static/media/riflerEmpty.png": "./static/media/riflerEmpty.b25ace25907080d16858.png",
+    "static/media/capitainEmpty.png": "./static/media/capitainEmpty.d072623e93e7a34ada1f.png",
+    "static/media/sniperEmpty.png": "./static/media/sniperEmpty.d78a3a5c6166824cb5e4.png",
+    "static/media/trainerEmpty.png": "./static/media/trainerEmpty.21ae07e29edda18d23ed.png",
+    "static/media/riflerEmpty.png": "./static/media/riflerEmpty.83933309c3b7c03ce53b.png",
+    "static/media/loading.gif": "./static/media/loading.1a32f552ee5280e2aef9.gif",
     "index.html": "./index.html",
-    "main.0fe467f2.css.map": "./static/css/main.0fe467f2.css.map",
-    "main.7c9ab39c.js.map": "./static/js/main.7c9ab39c.js.map"
+    "main.4e678f21.css.map": "./static/css/main.4e678f21.css.map",
+    "main.a8ae6b96.js.map": "./static/js/main.a8ae6b96.js.map"
   },
   "entrypoints": [
-    "static/css/main.0fe467f2.css",
-    "static/js/main.7c9ab39c.js"
+    "static/css/main.4e678f21.css",
+    "static/js/main.a8ae6b96.js"
   ]
 }
