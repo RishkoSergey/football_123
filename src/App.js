@@ -47,7 +47,7 @@ const App = () => {
         <img src={logo} className={cn('logo', {left: step === 2})} />
         {step === 1 && <Options list={genders} onChoose={onChooseGender} />}
         <SelectPanel gender={gender} visible={step === 2} onSetStep={(value) => setStep(value)} />
-        {step === 3 && <Options list={qrCodes}>
+        {step === 3 && <Options list={qrCodes} smallImg>
           <button className='backBtn' onClick={() => setStep(2)}>
             <img src={Arrow} />
             НАЗАД  
