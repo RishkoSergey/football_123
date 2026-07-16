@@ -88,6 +88,32 @@ const SelectPanel = ({ gender, visible, onSetStep }) => {
   const [womanOutfits, setWomanOutfits] = useState(null);
 
   useEffect(() => {
+    Object.values(manTopVariants).forEach(item => {
+      const img = new Image();
+      img.src = item;
+    });
+    Object.values(manBottomVariants).forEach(item => {
+      const img = new Image();
+      img.src = item;
+    });
+    Object.values(manSneackersVariants).forEach(item => {
+      const img = new Image();
+      img.src = item;
+    });
+
+    Object.values(womanTopVariants).forEach(item => {
+      const img = new Image();
+      img.src = item;
+    });
+    Object.values(womanBottomVariants).forEach(item => {
+      const img = new Image();
+      img.src = item;
+    });
+    Object.values(womanSneackersVariants).forEach(item => {
+      const img = new Image();
+      img.src = item;
+    });
+
     const manContext = require.context("../assets/man/models", false, /\.(png|jpe?g|webp)$/);
 
     const manPhotos = manContext.keys().reduce((acc, file) => {
@@ -104,21 +130,6 @@ const SelectPanel = ({ gender, visible, onSetStep }) => {
       img.src = item;
     });
 
-    Object.values(manTopVariants).forEach(item => {
-      const img = new Image();
-      img.src = item;
-    });
-    Object.values(manBottomVariants).forEach(item => {
-      const img = new Image();
-      img.src = item;
-    });
-    Object.values(manSneackersVariants).forEach(item => {
-      const img = new Image();
-      img.src = item;
-    });
-
-    ////////////////////////////////////////////////
-
     const womanContext = require.context("../assets/woman/models", false, /\.(png|jpe?g|webp)$/);
 
     const womanPhotos = womanContext.keys().reduce((acc, file) => {
@@ -131,19 +142,6 @@ const SelectPanel = ({ gender, visible, onSetStep }) => {
     setWomanOutfits(womanPhotos);
 
     Object.values(womanPhotos).forEach(item => {
-      const img = new Image();
-      img.src = item;
-    });
-
-    Object.values(womanTopVariants).forEach(item => {
-      const img = new Image();
-      img.src = item;
-    });
-    Object.values(womanBottomVariants).forEach(item => {
-      const img = new Image();
-      img.src = item;
-    });
-    Object.values(womanSneackersVariants).forEach(item => {
       const img = new Image();
       img.src = item;
     });
@@ -174,7 +172,13 @@ const SelectPanel = ({ gender, visible, onSetStep }) => {
       </>}
       {gender && <img src={gender === 'man' ? manOutfits?.[`${top}-${bottom}-${sneackers}`] : womanOutfits?.[`${top}-${bottom}-${sneackers}`]} className='bigRightImage' />}
       <div className='selectPanelBottomButtons'>
-        <button className='selectPanelBottomButton' onClick={() => onSetStep(1)}>
+        <button className='selectPanelBottomButton' onClick={() => {
+          setTop(1);
+          setBottom(1);
+          setSneakers(1);
+          setActiveTab('top');
+          onSetStep(1);
+        }}>
           <img src={reset} />
           СБРОС
         </button>
