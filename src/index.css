@@ -3,14 +3,15 @@
   src:  url('./assets/Suisse_Intl_Medium.ttf') format('ttf');
 }
 
+* {
+  font-family: Suisse, sans-serif;
+  font-weight: 500;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-family: Suisse, sans-serif;
-  font-weight: 500;
 }
 
 .main {
@@ -39,7 +40,7 @@ body {
       background-position: 0 0;
   }
   to {
-      background-position: 941px 0;
+      background-position: -941px 0;
   }
 }
 
@@ -115,11 +116,9 @@ body {
 }
 
 .selectPanelButtons {
-  position: absolute;
-  left: 0;
-  top: 0;
   display: flex;
   gap: 1.3vw;
+  margin-bottom: 3.2vh;
 }
 
 .selectPanelButton {
@@ -135,4 +134,94 @@ body {
 .selectPanelButton.active {
   background: #E3F900;
   color: #000000;
+}
+
+.bigRightImage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 41vw;
+  height: 100vh;
+}
+
+.selectImages {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
+}
+
+.selectImage {
+  width: 15.6vw;
+  height: 27.8vh;
+  margin-right: 1.3vw;
+  margin-bottom: 2.3vh;
+  background: #ffffff;
+}
+
+.selectImage:nth-child(3) {
+  margin-right: 0;
+}
+
+.selectImage img {
+  width: 100%;
+  height: 100%;
+}
+
+.selectImage.active {
+  background: #E3F900;
+}
+
+.selectPanelBottomButtons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  gap: 0.9vw;
+}
+
+.selectPanelBottomButton {
+  padding: 0.9vh 1vw;
+  display: flex;
+  align-items: center;
+  font-size: 1.8vh;
+  border-radius: 0.3vw;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+}
+
+.selectPanelBottomButton img {
+  width: 0.9vw;
+  height: auto;
+  margin-right: 0.5vw;
+}
+
+.selectPanelBottomButton:last-child {
+  background: #E3F900;
+}
+
+.selectPanelBottomButton:last-child img {
+  width: 1vw;
+}
+
+.backBtn {
+  position: absolute;
+  bottom: 0;
+  left: -13.8vw;
+  padding: 0.9vh 1vw;
+  display: flex;
+  align-items: center;
+  font-size: 1.8vh;
+  border-radius: 0.3vw;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+}
+
+.backBtn img {
+  width: 0.9vw;
+  height: auto;
+  margin-right: 0.5vw;
 }

@@ -1,4 +1,4 @@
-const Options = ({ list, onChoose }) => {
+const Options = ({ list, onChoose, children }) => {
   return (
     <div className='options'>
       {list.slice(0, 2).map((item, idx) => (
@@ -9,6 +9,7 @@ const Options = ({ list, onChoose }) => {
           <div className='optionText'>{item.name}</div>
         </div>
       ))}
+      {children}
     </div>
   );
 }
